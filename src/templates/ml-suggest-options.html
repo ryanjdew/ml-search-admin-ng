@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="clearfix panel-heading">Suggestions</div>
+  <p>Requires a range index in the source database</p>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th colspan="2">Suggestions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Default source: </td>
+          <td>
+            <select ng-model="model.defaultSource">
+              <option ng-repeat="option in model.suggestOptions track by $index" value="{{option.value}}" ng-selected="{{option.selected || option.name === model.defaultSource}}">{{option.name | decodeString}}</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+      <tfooter>
+        <tr>
+          <td colspan="2"><button ng-click="saveDefaultSource()" class="clearfix btn btn-primary pull-right">Save</button></td>
+        </tr>
+      </tfooter>
+    </table>
+  </div>
+</div>

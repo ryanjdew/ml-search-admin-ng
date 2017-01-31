@@ -23,11 +23,16 @@ html edit constraints
 ```html
 <ml-constraints constraints="model.searchOptions.options.constraint" existing-indexes="model.rangeIndexes"></ml-constraints>
 ```
+![Constraints](images/constraints.png)
+
 html using a structured query 
 ```html
 <ml-suggest-options constraints="model.searchOptions.options.constraint" default-source="model.searchOptions.options['default-suggest-source']" options-name="'all'"></ml-suggest-options>
 ```
+![Suggest Options](images/suggest-options.png)
+
 html using a structured query 
 ```html
 <ml-sort-options constraints="model.searchOptions.options.constraint" sort-options="(model.searchOptions.options.operator|filter:{name: 'sort'})[0]" options-name="'all'"></ml-sort-options>
 ```
+![Sort Options](images/sort-options.png)

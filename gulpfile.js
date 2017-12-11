@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     html2Js = require('gulp-ng-html2js'),
     jshint = require('gulp-jshint'),
-    karma = require('karma').server,
+    Server = require('karma').Server,
     minifyHtml = require('gulp-minify-html'),
     path = require('path'),
     rename = require('gulp-rename'),
@@ -53,24 +53,24 @@ gulp.task('templates', ['test'], function() {
 });
 
 gulp.task('test', function() {
-  karma.start({
+  new Server({
     configFile: path.join(__dirname, './karma.conf.js'),
     singleRun: true,
     autoWatch: false
   }, function (exitCode) {
     console.log('Karma has exited with ' + exitCode);
     process.exit(exitCode);
-  });
+  }).start();
 });
 
 gulp.task('autotest', function() {
-  karma.start({
+  new Server({
     configFile: path.join(__dirname, './karma.conf.js'),
     autoWatch: true
   }, function (exitCode) {
     console.log('Karma has exited with ' + exitCode);
     process.exit(exitCode);
-  });
+  }).start();
 });
 
 gulp.task('docs', function() {
@@ -95,4 +95,4 @@ gulp.task('publish-docs', function() {
   .pipe(ghpages());
 });
 
-gulp.task('default', ['jshint', 'scripts', 'templates']);
+gulp.task('default', ['jshint', 'templates', 'scripts']);

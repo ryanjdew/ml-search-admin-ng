@@ -1,6 +1,6 @@
 {
   "name": "ml-search-admin-ng",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "AngularJS library for working with MarkLogic and Highcharts",
   "devDependencies": {
     "gulp": "^3.9.1",
@@ -16,15 +16,15 @@
     "jquery": "^2.1.4",
     "jsdoc": "^3.3.1",
     "jsdoc-baseline": "git://github.com/hegemonic/jsdoc-baseline.git#887a5a5",
-    "karma": "^0.12.37",
-    "karma-chrome-launcher": "^1.0.1",
-    "karma-coverage": "^0.4.2",
-    "karma-jasmine": "^0.3.8",
-    "karma-ng-json2js-preprocessor": "^1.0.0",
-    "karma-phantomjs-launcher": "^0.2.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.1",
+    "karma-ng-json2js-preprocessor": "^2.0.1",
+    "karma-phantomjs-launcher": "^1.0.4",
     "minimatch": "^3.0.2",
-    "phantomjs": "^1.9.17",
-    "phantomjs-polyfill": "0.0.1"
+    "phantomjs-prebuilt": "^2.1.1",
+    "phantomjs-polyfill": "0.0.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -46,6 +46,7 @@
   "homepage": "https://github.com/ryanjdew/ml-search-admin-ng",
   "dependencies": {
     "gulp": "^3.9.1",
-    "gulp-gh-pages": "^0.5.4"
+    "gulp-gh-pages": "^0.5.4",
+    "karma": "^1.7.1"
   }
 }

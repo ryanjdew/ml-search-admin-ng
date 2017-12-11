@@ -76,7 +76,12 @@
               scope.optionsName,
               { options: { constraint: scope.constraints } },
               'constraint'
-            );
+            ).then(function(result) {
+              if (scope.saveCallback) {
+                scope.saveCallback();
+              }
+              return result;
+            });
           };
         }
 
@@ -86,7 +91,8 @@
           scope: {
             'constraints': '=?',
             'existingIndexes': '=?',
-            'optionsName': '=?'
+            'optionsName': '=?',
+            'saveCallback': '&?'
           },
           link: link
         };

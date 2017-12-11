@@ -93,6 +93,9 @@
           if (val.localname && rangeConstraint.element && !rangeConstraint.attribute) {
             matchedSelector = val.localname === rangeConstraint.element.name;
           }
+          if (val.localname && rangeConstraint['json-property']) {
+            matchedSelector = val.localname === rangeConstraint['json-property'];
+          }
           if (val.localname && rangeConstraint.attribute) {
             matchedSelector = val.localname === rangeConstraint.attribute.name;
           }
@@ -382,7 +385,12 @@
               scope.optionsName,
               { options: { constraint: scope.constraints } },
               'constraint'
-            );
+            ).then(function(result) {
+              if (scope.saveCallback) {
+                scope.saveCallback();
+              }
+              return result;
+            });
           };
         }
 
@@ -392,7 +400,8 @@
           scope: {
             'constraints': '=?',
             'existingIndexes': '=?',
-            'optionsName': '=?'
+            'optionsName': '=?',
+            'saveCallback': '&?'
           },
           link: link
         };
@@ -457,7 +466,12 @@
               scope.optionsName,
               { options: { operator: scope.sortOptions } },
               'operator'
-            );
+            ).then(function(result) {
+              if (scope.saveCallback) {
+                scope.saveCallback();
+              }
+              return result;
+            });
           };
         }
 
@@ -467,7 +481,8 @@
           scope: {
             'constraints': '=?',
             'sortOptions': '=?',
-            'optionsName': '=?'
+            'optionsName': '=?',
+            'saveCallback': '&?'
           },
           link: link
         };
@@ -559,7 +574,12 @@
                 scope.optionsName,
                 suggestOptions,
                 'suggestion-source'
-              );
+              ).then(function(result) {
+              if (scope.saveCallback) {
+                scope.saveCallback();
+              }
+              return result;
+            });
           };
 
           scope.getDefaultSourceOpts = function() {
@@ -589,7 +609,8 @@
             'constraints': '=?',
             'sortOptions': '=?',
             'defaultSource': '=?',
-            'optionsName': '=?'
+            'optionsName': '=?',
+            'saveCallback': '&?'
           },
           link: link
         };

@@ -57,6 +57,9 @@
           if (val.localname && rangeConstraint.element && !rangeConstraint.attribute) {
             matchedSelector = val.localname === rangeConstraint.element.name;
           }
+          if (val.localname && rangeConstraint['json-property']) {
+            matchedSelector = val.localname === rangeConstraint['json-property'];
+          }
           if (val.localname && rangeConstraint.attribute) {
             matchedSelector = val.localname === rangeConstraint.attribute.name;
           }

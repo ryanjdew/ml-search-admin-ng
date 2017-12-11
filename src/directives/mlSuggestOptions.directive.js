@@ -83,7 +83,12 @@
                 scope.optionsName,
                 suggestOptions,
                 'suggestion-source'
-              );
+              ).then(function(result) {
+              if (scope.saveCallback) {
+                scope.saveCallback();
+              }
+              return result;
+            });
           };
 
           scope.getDefaultSourceOpts = function() {
@@ -113,7 +118,8 @@
             'constraints': '=?',
             'sortOptions': '=?',
             'defaultSource': '=?',
-            'optionsName': '=?'
+            'optionsName': '=?',
+            'saveCallback': '&?'
           },
           link: link
         };

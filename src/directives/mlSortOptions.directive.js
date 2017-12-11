@@ -56,7 +56,12 @@
               scope.optionsName,
               { options: { operator: scope.sortOptions } },
               'operator'
-            );
+            ).then(function(result) {
+              if (scope.saveCallback) {
+                scope.saveCallback();
+              }
+              return result;
+            });
           };
         }
 
@@ -66,7 +71,8 @@
           scope: {
             'constraints': '=?',
             'sortOptions': '=?',
-            'optionsName': '=?'
+            'optionsName': '=?',
+            'saveCallback': '&?'
           },
           link: link
         };
